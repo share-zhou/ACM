@@ -1,20 +1,21 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#define MAX 1000
 char *minusNumber(char *, char *, char *);
 void clearNull(char *);
 void clearZeroLow(char num[])	//清除运算时产生的数组的低位的多余的0
 {
     int i;
-    char temp[200];
+    char temp[MAX];
     int x;
-    for (x = 0; x < 200; x++)
+    for (x = 0; x < MAX; x++)
 	temp[x] = '\0';
     for (i = 0; num[i] == '0'; i++) ;
     int k;
-    for (k = 0; i < 200 && num[i] != '\0'; i++, k++)
+    for (k = 0; i < MAX && num[i] != '\0'; i++, k++)
 	temp[k] = num[i];
-    for (x = 0; x < 200; x++)
+    for (x = 0; x < MAX; x++)
 	num[x] = temp[x];
     if (num[0] == '\0')
 	num[0] = '0';
@@ -118,8 +119,8 @@ char *addNumber(char num1[], char num2[], char result[])
 	for (i = 0; num1[i] != '\0'; i++)	//确定num1,num2中参与运算的数字“个数”
 	    ;
 	for (j = 0; num2[j] != '\0'; j++) ;
-	char tempNum2[200];
-	for (index = 0; index < 200; index++)	//两步for循环可以合成一个for循环
+	char tempNum2[MAX];
+	for (index = 0; index < MAX; index++)	//两步for循环可以合成一个for循环
 	    tempNum2[index] = '\0';
 	for (index = 1; index < j; index++)
 	    tempNum2[index - 1] = num2[index];
@@ -132,8 +133,8 @@ char *addNumber(char num1[], char num2[], char result[])
 	for (i = 0; num1[i] != '\0'; i++)	//确定num1,num2中参与运算的数字“个数”
 	    ;
 	for (j = 0; num2[j] != '\0'; j++) ;
-	char tempNum1[200];
-	for (index = 0; index < 200; index++)	//两步for循环可以合成一个for循环
+	char tempNum1[MAX];
+	for (index = 0; index < MAX; index++)	//两步for循环可以合成一个for循环
 	    tempNum1[index] = '\0';
 	for (index = 1; index < i; index++)
 	    tempNum1[index - 1] = num1[index];
@@ -146,13 +147,13 @@ char *addNumber(char num1[], char num2[], char result[])
 	for (i = 0; num1[i] != '\0'; i++)	//确定num1,num2中参与运算的数字“个数”
 	    ;
 	for (j = 0; num2[j] != '\0'; j++) ;
-	char tempNum1[200];
-	for (index = 0; index < 200; index++)	//两步for循环可以合成一个for循环
+	char tempNum1[MAX];
+	for (index = 0; index < MAX; index++)	//两步for循环可以合成一个for循环
 	    tempNum1[index] = '\0';
 	for (index = 1; index < i; index++)
 	    tempNum1[index - 1] = num1[index];
-	char tempNum2[200];
-	for (index = 0; index < 200; index++)	//两步for循环可以合成一个for循环
+	char tempNum2[MAX];
+	for (index = 0; index < MAX; index++)	//两步for循环可以合成一个for循环
 	    tempNum2[index] = '\0';
 	for (index = 1; index < j; index++)
 	    tempNum2[index - 1] = num2[index];
@@ -276,8 +277,8 @@ char *minusNumber(char num1[], char num2[], char result[])
     else if (num1[0] != '-' && num2[0] == '-')	//+ -
     {
 	int index;
-	char tempNum2[200];
-	for (index = 0; index < 200; index++)
+	char tempNum2[MAX];
+	for (index = 0; index < MAX; index++)
 	    tempNum2[index] = '\0';
 	for (index = 1; index < j; index++)
 	    tempNum2[index - 1] = num2[index];
@@ -287,8 +288,8 @@ char *minusNumber(char num1[], char num2[], char result[])
     else if (num1[0] == '-' && num2[0] != '-')	//- +
     {
 	int index;
-	char tempNum1[200];
-	for (index = 0; index < 200; index++)
+	char tempNum1[MAX];
+	for (index = 0; index < MAX; index++)
 	    tempNum1[index] = '\0';
 	for (index = 1; index < i; index++)
 	    tempNum1[index - 1] = num1[index];
@@ -300,9 +301,9 @@ char *minusNumber(char num1[], char num2[], char result[])
     else			//- -
     {
 	int index;
-	char tempNum1[200];
-	char tempNum2[200];
-	for (index = 0; index < 200; index++) {
+	char tempNum1[MAX];
+	char tempNum2[MAX];
+	for (index = 0; index < MAX; index++) {
 	    tempNum1[index] = '\0';
 	    tempNum2[index] = '\0';
 	}
@@ -346,8 +347,8 @@ char *multiNumber(char num1[], char num2[], char result[])
     else if (num1[0] != '-' && num2[0] == '-')	//+ -
     {
 	int index;
-	char tempNum2[200];
-	for (index = 0; index < 200; index++)
+	char tempNum2[MAX];
+	for (index = 0; index < MAX; index++)
 	    tempNum2[index] = '\0';
 	for (index = 1; index < j; index++)
 	    tempNum2[index - 1] = num2[index];
@@ -359,8 +360,8 @@ char *multiNumber(char num1[], char num2[], char result[])
     else if (num1[0] == '-' && num2[0] != '-')	//- +
     {
 	int index;
-	char tempNum1[200];
-	for (index = 0; index < 200; index++)
+	char tempNum1[MAX];
+	for (index = 0; index < MAX; index++)
 	    tempNum1[index] = '\0';
 	for (index = 1; index < i; index++)
 	    tempNum1[index - 1] = num1[index];
@@ -372,9 +373,9 @@ char *multiNumber(char num1[], char num2[], char result[])
     else			//- -
     {
 	int index;
-	char tempNum1[200];
-	char tempNum2[200];
-	for (index = 0; index < 200; index++) {
+	char tempNum1[MAX];
+	char tempNum2[MAX];
+	for (index = 0; index < MAX; index++) {
 	    tempNum1[index] = '\0';
 	    tempNum2[index] = '\0';
 	}
@@ -391,10 +392,10 @@ char *multiNumber(char num1[], char num2[], char result[])
 char *divNumber(char num1[], char num2[], char result[], char cResult[])
 {
     int i, j;
-    char c[200];
-    char cTemp[200];
-    char resultTemp[200];
-    char tempNum[200];		//将被用于运算的数组参数
+    char c[MAX];
+    char cTemp[MAX];
+    char resultTemp[MAX];
+    char tempNum[MAX];		//将被用于运算的数组参数
     for (i = 0; num1[i] != '\0'; i++)	//确定num1,num2的有效长度，包括符号位
 	;
     for (j = 0; num2[j] != '\0'; j++) ;
@@ -402,7 +403,7 @@ char *divNumber(char num1[], char num2[], char result[], char cResult[])
     {
 	int divResult;		//保存商
 	int x;
-	for (x = 0; x < 200; x++) {
+	for (x = 0; x < MAX; x++) {
 	    c[x] = '\0';
 	    cTemp[x] = '\0';
 	    resultTemp[x] = '\0';
@@ -435,11 +436,11 @@ char *divNumber(char num1[], char num2[], char result[], char cResult[])
  label:		divResult = -1;
 			//divResult==-1表示还没有求出合适的商值
 			int x;
-			for (x = 0; x < 200; x++)
+			for (x = 0; x < MAX; x++)
 			    tempNum[x] = '\0';
-			char copyResult[200];	//存储result中商值的临时数组
+			char copyResult[MAX];	//存储result中商值的临时数组
 			int i;
-			for (i = 0; i < 200; i++)
+			for (i = 0; i < MAX; i++)
 			    copyResult[i] = result[i];	//暂存result到copyResult
 			int tempResult;
 			for (tempResult = 1;
@@ -452,18 +453,18 @@ char *divNumber(char num1[], char num2[], char result[], char cResult[])
 				 resultTemp[highPosition] !=
 				 '\0'; highPosition++) ;
 			    highPosition--;
-			    char resultTempTemp[200];
+			    char resultTempTemp[MAX];
 			    int i;
-			    for (i = 0; i < 200; i++)
+			    for (i = 0; i < MAX; i++)
 				resultTempTemp[i] = '\0';
-			    for (i = 0; i < 200; i++, highPosition--)
+			    for (i = 0; i < MAX; i++, highPosition--)
 				resultTempTemp[i] = resultTemp[highPosition];
 			    clearNull(result);	//清空result备用
 			    int x;
-			    for (x = 0; x < 200; x++)	//减法函数的定义中对参数进行了修改，先保留一个副本
+			    for (x = 0; x < MAX; x++)	//减法函数的定义中对参数进行了修改，先保留一个副本
 				cTemp[x] = c[x];
 			    minusNumber(c, resultTempTemp, result);	//result=c-resultTemp
-			    for (x = 0; x < 200; x++)	//还原c
+			    for (x = 0; x < MAX; x++)	//还原c
 				c[x] = cTemp[x];
 
 			    //result中的结果是倒序存储的，再次利用result中的值时，需将其倒置
@@ -477,7 +478,7 @@ char *divNumber(char num1[], char num2[], char result[], char cResult[])
 				clearNull(cTemp);
 				divResult = tempNum[0];
 				int x;
-				for (x = 0; x < 200; x++)
+				for (x = 0; x < MAX; x++)
 				    result[x] = copyResult[x];	//将copyResult中的值赋回result
 				result[jPosition] = tempNum[0];	//赋给result当前位新的商值
 			    }
@@ -488,7 +489,7 @@ char *divNumber(char num1[], char num2[], char result[], char cResult[])
 				clearNull(resultTemp);
 				multiNumber(num2, tempNum, resultTemp);	//resultTemp=num2*tempNum
 				int i;
-				for (i = 0; i < 200; i++)
+				for (i = 0; i < MAX; i++)
 				    resultTempTemp[i] = '\0';
 				for (highPosition = 0; resultTemp[highPosition]
 				     != '\0'; highPosition++) ;
@@ -511,7 +512,7 @@ char *divNumber(char num1[], char num2[], char result[], char cResult[])
 				    c[x] = result[highPosition];	//将c更新为当前的余数
 				    cTemp[x] = result[highPosition];
 				}
-				for (x = 0; x < 200; x++)
+				for (x = 0; x < MAX; x++)
 				    result[x] = copyResult[x];	//将copyResult中的值赋回result
 				result[jPosition] = tempNum[0];	//赋给result当前位新的商值
 			    }
@@ -556,7 +557,7 @@ char *divNumber(char num1[], char num2[], char result[], char cResult[])
     {
     }
     int x;
-    for (x = 0; x < 200; x++)
+    for (x = 0; x < MAX; x++)
 	cResult[x] = c[x];
     clearZeroLow(result);
     return result;
@@ -571,15 +572,14 @@ void clearNull(char num[])
 
 int main(int argc, char *argv[])
 {
-    char number1[1000];
-    char number2[1000];
-    memset(number1, 0, 1000);
-    memset(number2, 0, 1000);
+    char number1[MAX];
+    memset(number1, 0, MAX);
+    memset(number2, 0, MAX);
     while (scanf("%s%s", number1, number2) == 2) {
-	char result[1000];
-	char cresult[1000];
-	memset(result, 0, 1000);
-	memset(result, 0, 1000);
+	char result[MAX];
+	char cresult[MAX];
+	memset(result, 0, MAX);
+	memset(result, 0, MAX);
 	divNumber(number1, number2, result, cresult);
 	printf("%s\n", result);
     } return 0;
